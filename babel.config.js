@@ -1,10 +1,20 @@
 module.exports = {
     presets: [
-        '@babel/preset-env', 
-        '@babel/preset-react'
+        // ['@babel/preset-env',  { "modules": false } ],
+        ['@babel/preset-env', { "loose": true }],
+        // ['@babel/preset-env', { "debug": true }],
+        // '@babel/preset-react'
     ],
     plugins: [
-        // "@babel/transform-runtime"
-        "@babel/plugin-proposal-class-properties"
+        [
+            "@babel/plugin-proposal-class-properties", 
+            // { 'loose': true }
+        ],
+        // [
+        //     "@babel/transform-runtime"
+        // ],
+        // [
+        //     "transform-remove-strict-mode",
+        // ]
     ]
 };

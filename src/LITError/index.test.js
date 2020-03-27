@@ -1,6 +1,13 @@
 import LITError from '.';
+// const LITError = require('./index');
 
-it('test fnInClassThatThrowsError', () =>{
+// it.only('test print funciton name', () => {
+//     runOutsideObject();
+//     const obj = new Instance();
+//     obj.runInsideObject();
+// })
+
+it.only('test fnInClassThatThrowsError', () =>{
 
     try{
         const obj = new Instance();
@@ -31,12 +38,25 @@ it('test arrowFnInClassThatThrowsError ( arguments not supported)', () => {
 });
 
 
+const runOutsideObject = () => {
+    var stack = new Error().stack,
+    caller = stack.split('\n')[2].trim();
+    console.log('stack ->', stack);
+    console.log('caller ->', caller);
+}
 
 
 class Instance {
 
     constructor() {
         this.fnInClassThatThrowsError = this.fnInClassThatThrowsError.bind(this);
+    }
+
+    runInsideObject() {
+        var stack = new Error().stack,
+        caller = stack.split('\n')[2].trim();
+        console.log('stack ->', stack);
+        console.log('caller ->', caller);
     }
 
     arrowFnInClassThatThrowsError = () => {

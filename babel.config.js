@@ -3,7 +3,7 @@ module.exports = {
         // ['@babel/preset-env',  { "modules": false } ],
         // ['@babel/preset-env', { "loose": true }],
         [ '@babel/preset-env' ],
-        // '@babel/preset-react'
+        [ '@babel/preset-react' ],
     ],
     plugins: [
         [

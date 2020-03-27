@@ -1,5 +1,7 @@
 import LITError from './LITError';
+import caller from './caller';
 
-export {
-    LITError
+export default {
+    LITError,
+    caller,
 };

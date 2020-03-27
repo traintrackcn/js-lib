@@ -1,8 +1,8 @@
 module.exports = {
     presets: [
         // ['@babel/preset-env',  { "modules": false } ],
-        ['@babel/preset-env', { "loose": true }],
-        // ['@babel/preset-env', { "debug": true }],
+        // ['@babel/preset-env', { "loose": true }],
+        [ '@babel/preset-env' ],
         // '@babel/preset-react'
     ],
     plugins: [
@@ -10,11 +10,7 @@ module.exports = {
             "@babel/plugin-proposal-class-properties", 
             // { 'loose': true }
         ],
-        // [
-        //     "@babel/transform-runtime"
-        // ],
-        // [
-        //     "transform-remove-strict-mode",
-        // ]
-    ]
+        // [ "@babel/transform-runtime" ]
+    ],
+    // sourceType: "unambiguous",
 };

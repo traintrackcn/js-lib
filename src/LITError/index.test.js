@@ -1,11 +1,5 @@
 import LITError from '.';
-// const LITError = require('./index');
-
-// it.only('test print funciton name', () => {
-//     runOutsideObject();
-//     const obj = new Instance();
-//     obj.runInsideObject();
-// })
+import caller from '../caller';
 
 it.only('test fnInClassThatThrowsError', () =>{
 
@@ -69,12 +63,14 @@ class Instance {
     }
 
     fnInClassThatThrowsError() {
+        // console.log('caller() ->', caller());
         try{
             var a = '';
             a.callNoExistFN();
         }catch(e) {
+            // console.log('caller() ->', caller());
             // console.log('fnName ->', arguments.callee.name);
-            throw new LITError(e, this, arguments);
+            throw new LITError(e, caller());
         }
         
     }

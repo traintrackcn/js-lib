@@ -1,7 +1,7 @@
 import LITError from '.';
 import caller from '../caller';
 
-it.only('test fnInClassThatThrowsError', () =>{
+it('test fnInClassThatThrowsError', () =>{
 
     try{
         const obj = new Instance();
@@ -17,7 +17,7 @@ it('test arrowFnOutsideObjectThatThrowsError ( arguments not supported )', () =>
     try{
         arrowFnOutsideObjectThatThrowsError();
     }catch(e) {
-        expect(e.message).toBe('a.callNoExistFN is not a function');
+        expect(e.message).toBe('[ arrowFnOutsideObjectThatThrowsError ] a.callNoExistFN is not a function');
     }
 
 });
@@ -27,17 +27,10 @@ it('test arrowFnInClassThatThrowsError ( arguments not supported)', () => {
         const obj = new Instance();
         obj.arrowFnInClassThatThrowsError();
     }catch(e) {
-        expect(e.message).toBe('[ Instance ] a.callNoExistFN is not a function');
+        expect(e.message).toBe('[ Instance.arrowFnInClassThatThrowsError ] a.callNoExistFN is not a function');
     }
 });
 
-
-const runOutsideObject = () => {
-    var stack = new Error().stack,
-    caller = stack.split('\n')[2].trim();
-    console.log('stack ->', stack);
-    console.log('caller ->', caller);
-}
 
 
 class Instance {
@@ -46,19 +39,13 @@ class Instance {
         this.fnInClassThatThrowsError = this.fnInClassThatThrowsError.bind(this);
     }
 
-    runInsideObject() {
-        var stack = new Error().stack,
-        caller = stack.split('\n')[2].trim();
-        console.log('stack ->', stack);
-        console.log('caller ->', caller);
-    }
 
     arrowFnInClassThatThrowsError = () => {
         try{
             var a = '';
             a.callNoExistFN();
         }catch(e) {
-            throw new LITError(e, this);
+            throw new LITError(e, caller());
         }
     }
 
@@ -82,7 +69,7 @@ const arrowFnOutsideObjectThatThrowsError = () => {
         var a = '';
         a.callNoExistFN();
     }catch(e) {
-        throw new LITError(e, this, arguments);
+        throw new LITError(e, caller());
     }
     
 }

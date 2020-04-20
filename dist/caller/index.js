@@ -1,21 +1,6 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-
-var _default = function _default() {
-  // var callerName;
-  // try { 
-  //     throw new Error(); 
-  // }catch (e) { 
-  //     console.log('e.stack ->', e.stack);
-  //     var re = /(\w+)@|at (\w+) \(/g, st = e.stack, m;
-  //     re.exec(st), m = re.exec(st);
-  //     callerName = m[1] || m[2];
-  // }
-  // return callerName;
+module.exports = function () {
   try {
     throw new Error();
   } catch (e) {
@@ -39,5 +24,3 @@ var _default = function _default() {
   // return sCallerName;
 
 };
-
-exports["default"] = _default;

@@ -1,5 +1,4 @@
-import { LITError } from '../index'
-import caller from '../index';
+import { caller, LITError } from '../index'
 
 it('test fnInClassThatThrowsError', () =>{
 

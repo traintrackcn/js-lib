@@ -60,8 +60,8 @@ module.exports = /*#__PURE__*/function () {
         var line = this.getLine2(); // console.log('line ->', line);
 
         var regex = /\w+./i;
-        var matches = line.match(regex);
-        console.log('matches ->', matches);
+        var matches = line.match(regex); // console.log('matches ->', matches);
+
         var result = line;
 
         if (matches && matches.length) {
@@ -82,8 +82,8 @@ module.exports = /*#__PURE__*/function () {
         var line = this.getLine3(); // console.log('line ->', line);
 
         var regex = /\w+\s/i;
-        var matches = line.match(regex);
-        console.log('matches ->', matches);
+        var matches = line.match(regex); // console.log('matches ->', matches);
+
         var result = line;
 
         if (matches && matches.length) {

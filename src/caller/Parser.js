@@ -42,7 +42,7 @@ module.exports = class StackParser {
             // console.log('line ->', line);
             const regex = /\w+./i;
             const matches = line.match(regex);
-            console.log('matches ->', matches);
+            // console.log('matches ->', matches);
             var result = line;
             if (matches && matches.length) {
                 result = matches[0];
@@ -61,7 +61,7 @@ module.exports = class StackParser {
             // console.log('line ->', line);
             const regex = /\w+\s/i;
             const matches = line.match(regex);
-            console.log('matches ->', matches);
+            // console.log('matches ->', matches);
             var result = line;
             if (matches && matches.length) {
                 result = matches[0];

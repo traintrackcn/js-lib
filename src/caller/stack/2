@@ -1,0 +1,10 @@
+Error:
+        at Object.<anonymous>.module.exports (/Users/traintrackcn/Treasures/dev/nodejs-api-server/common/caller/index.js:4:15)
+        at RouterHandler.caller [as getFile] (/Users/traintrackcn/Treasures/dev/nodejs-api-server/common/router/Handler.js:75:35)
+        at getFile (/Users/traintrackcn/Treasures/dev/nodejs-api-server/common/router/Handler.test.js:16:14)
+        at Object.params.length.test.length.done (/Users/traintrackcn/Treasures/dev/nodejs-api-server/node_modules/jest-each/build/bind.js:75:31)
+        at resolve (/Users/traintrackcn/Treasures/dev/nodejs-api-server/node_modules/jest-jasmine2/build/queueRunner.js:43:12)
+        at new Promise (<anonymous>)
+        at mapper (/Users/traintrackcn/Treasures/dev/nodejs-api-server/node_modules/jest-jasmine2/build/queueRunner.js:26:19)
+        at promise.then (/Users/traintrackcn/Treasures/dev/nodejs-api-server/node_modules/jest-jasmine2/build/queueRunner.js:73:41)
+        at process._tickCallback (internal/process/next_tick.js:68:7)

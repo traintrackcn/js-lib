@@ -17,7 +17,6 @@ export default class LITError extends Error{
     // }
 
     setCaller(value) {
-        console.log('setCaller ->', value);
         this._caller = value;
     }
 

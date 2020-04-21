@@ -62,7 +62,6 @@ var LITError = /*#__PURE__*/function (_Error) {
   _createClass(LITError, [{
     key: "setCaller",
     value: function setCaller(value) {
-      console.log('setCaller ->', value);
       this._caller = value;
     }
   }, {

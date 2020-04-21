@@ -1,0 +1,9 @@
+Error:
+          at Object.<anonymous>.module.exports (/Users/traintrackcn/Treasures/dev/js-lib/src/caller/index.js:4:15)
+          at jiminyCricket (/Users/traintrackcn/Treasures/dev/js-lib/src/caller/index.import.test.js:6:12)
+          at Object.<anonymous> (/Users/traintrackcn/Treasures/dev/js-lib/src/caller/index.import.test.js:10:12)
+          at Object.asyncJestTest (/Users/traintrackcn/Treasures/dev/js-lib/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
+          at resolve (/Users/traintrackcn/Treasures/dev/js-lib/node_modules/jest-jasmine2/build/queueRunner.js:45:12)
+          at new Promise (<anonymous>)
+          at mapper (/Users/traintrackcn/Treasures/dev/js-lib/node_modules/jest-jasmine2/build/queueRunner.js:28:19)
+          at promise.then (/Users/traintrackcn/Treasures/dev/js-lib/node_modules/jest-jasmine2/build/queueRunner.js:75:41)

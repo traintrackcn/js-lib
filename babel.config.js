@@ -10,7 +10,7 @@ module.exports = {
             "@babel/plugin-proposal-class-properties", 
             // { 'loose': true }
         ],
-        // [ "@babel/transform-runtime" ]
+        [ "@babel/transform-runtime" ]
     ],
     // sourceType: "unambiguous",
 };

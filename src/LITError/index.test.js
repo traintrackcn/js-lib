@@ -49,13 +49,11 @@ class Instance {
     }
 
     fnInClassThatThrowsError() {
-        // console.log('caller() ->', caller());
         try{
             var a = '';
             a.callNoExistFN();
         }catch(e) {
-            // console.log('caller() ->', caller());
-            // console.log('fnName ->', arguments.callee.name);
+            console.log(new Error().stack);
             throw new LITError(e, caller());
         }
         

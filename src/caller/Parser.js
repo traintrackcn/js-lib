@@ -1,3 +1,5 @@
+const callerE = require('./enum');
+
 module.exports = class StackParser {
 
     constructor(stack) {
@@ -24,12 +26,19 @@ module.exports = class StackParser {
     }
 
     getScenario1(matches) {
+        console.log('=== scenario1 ===');
         const item = matches[0];
         const arr = item.split(' ');
-        return arr[2];
+        console.log('arr ->', arr);
+        for (let i = 0; i < arr.length; i++) {
+            const element = arr[i];
+            if (element !== 'at' && element !== '') return element; 
+        }
+        return callerE.UNKNOWN_CALLER;
     }
 
     getScenario2(matches) {
+        console.log('=== scenario2 ===');
         const line0 = matches[0];
         const arr0 = line0.split('.caller');
         const instance = arr0[0].substring(1);
@@ -40,6 +49,7 @@ module.exports = class StackParser {
     }
 
     getScenario3(matches) {
+        console.log('=== scenario3 ===');
         for (let i = 0; i < matches.length; i++) {
             const match = matches[i];
             if (match.indexOf(' Generator.')>-1) continue;
@@ -51,7 +61,7 @@ module.exports = class StackParser {
             const arr = match.split(' ');
             return arr[1];
         }
-        return 'UNKNOWN_CALLER';
+        return callerE.UNKNOWN_CALLER;
     }
 
     parse() {

@@ -8,14 +8,6 @@ module.exports = class LITError extends Error{
         this.message = this.getMessage();
     }
 
-    // setArgs(value) {
-    //     this._agrs = value;
-    // }
-
-    // getArgs() {
-    //     return this._agrs;
-    // }
-
     setCaller(value) {
         this._caller = value;
     }
@@ -24,34 +16,12 @@ module.exports = class LITError extends Error{
         return this._caller;
     }
 
-    // setObj(value) {
-    //     this._obj = value;
-    // }
-
-    // getObj() {
-    //     return this._obj;
-    // }
-
-    // getCallee() {
-    //     const args = this.getArgs();
-    //     if (args) return args.callee;
-    //     return {};
-    // }
 
     getFnName() {
         // const callee = this.getCallee();
         // return callee.name;
         return this.getCaller();
     }
-
-    // getObjName() {
-    //     try{
-    //         const obj = this.getObj();
-    //         var result = obj.constructor.name;
-    //         if (result === 'Object') result = undefined;
-    //         return result;
-    //     }catch(e) { }
-    // }
 
     getOriginalMessage() {
         return this.message;

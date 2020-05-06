@@ -3,16 +3,20 @@ const StackParser = require('./Parser');
 module.exports = () => {
 
     try {
-        throw new Error();
-    }
-    catch (e) {
-        try {
-            const stack = e.stack;
-            const parser = new StackParser(stack);
-            return parser.parse();
-        } catch (e) {
-            return '';
-        }
+        const stack = getRealStack( new Error() );
+        console.log('caller stack ->', stack);
+        const parser = new StackParser(stack);
+        return parser.parse();
+    } catch (e) {
+        return 'UNKNOWN_CALLER';
     }
 
 };
+
+const getRealStack = (e) => {
+    var result = e.stack;
+    var arr = result.split('\n');
+    arr.splice(1, 1);
+    // console.log('arr ->', arr);
+    return arr.join('\n');
+}

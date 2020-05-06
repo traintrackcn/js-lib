@@ -1,4 +1,5 @@
 const StackParser = require('./Parser');
+const callerE = require('./enum');
 
 module.exports = () => {
 
@@ -9,7 +10,7 @@ module.exports = () => {
         const parser = new StackParser(stack);
         return parser.parse();
     } catch (e) {
-        return 'UNKNOWN_CALLER';
+        return callerE.UNKNOWN_CALLER;
     }
 
 };

@@ -1,5 +1,5 @@
-import LITError from './LITError';
-import caller from './caller';
+const LITError = require('./LITError');
+const caller = require('./caller');
 
 module.exports = {
     caller,

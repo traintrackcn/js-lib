@@ -1,4 +1,4 @@
-export default class LITError extends Error{
+module.exports = class LITError extends Error{
     constructor(e, caller) {
         super(e.message);
         // this.setObj(obj);

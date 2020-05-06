@@ -1,4 +1,4 @@
-import { caller, LITError } from '../index'
+const { caller, LITError } = require('../index');
 
 it('test fnInClassThatThrowsError', () =>{
 

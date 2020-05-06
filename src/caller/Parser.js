@@ -26,10 +26,10 @@ module.exports = class StackParser {
     }
 
     getScenario1(matches) {
-        console.log('=== scenario1 ===');
+        console.log('=== caller scenario1 ===');
         const item = matches[0];
         const arr = item.split(' ');
-        console.log('arr ->', arr);
+        // console.log('arr ->', arr);
         for (let i = 0; i < arr.length; i++) {
             const element = arr[i];
             if (element !== 'at' && element !== '') return element; 
@@ -38,18 +38,18 @@ module.exports = class StackParser {
     }
 
     getScenario2(matches) {
-        console.log('=== scenario2 ===');
+        console.log('=== caller scenario2 ===');
         const line0 = matches[0];
         const arr0 = line0.split('.caller');
         const instance = arr0[0].substring(1);
         const line1 = matches[1];
         const func = this.getFunc(line1);
-        console.log('func ->', func);
+        // console.log('func ->', func);
         return `${instance}.${func}`;
     }
 
     getScenario3(matches) {
-        console.log('=== scenario3 ===');
+        console.log('=== caller scenario3 ===');
         for (let i = 0; i < matches.length; i++) {
             const match = matches[i];
             if (match.indexOf(' Generator.')>-1) continue;
@@ -96,7 +96,7 @@ module.exports = class StackParser {
         const matches = this.getPossibleMatches();
         const line0 = matches[0];
         const line2 = matches[2];
-        console.log('matches ->', matches);
+        // console.log('matches ->', matches);
         if (line0.indexOf('.caller') > -1) return this.getScenario2(matches);
         if (line2.indexOf('at asyncGeneratorStep') >-1) return this.getScenario3(matches);
         return this.getScenario1(matches);

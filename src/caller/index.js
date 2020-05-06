@@ -4,8 +4,8 @@ module.exports = () => {
 
     try {
         const stack = getRealStack( new Error() );
-        console.log('caller stack ->', stack);
-        console.log('original caller stack ->', new Error().stack);
+        // console.log('caller stack ->', stack);
+        // console.log('original caller stack ->', new Error().stack);
         const parser = new StackParser(stack);
         return parser.parse();
     } catch (e) {

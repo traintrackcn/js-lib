@@ -21,6 +21,13 @@ it('test async instance.function', () => {
 })
 
 
+it('test instance.function', () => {
+    const stack = readAsync('./stack/4');
+    const p = new StackParser(stack);
+    expect(p.parse()).toBe('JestRequestHandler.applyHeaders');
+})
+
+
 
 function readAsync(path) {
     try {

@@ -43,8 +43,8 @@ module.exports = class StackParser {
         const arr0 = line0.split('.caller');
         const instance = arr0[0].substring(1);
         const line1 = matches[1];
-        const arr1 = line1.split(' ');
-        const func = arr1[2];
+        const func = this.getFunc(line1);
+        console.log('func ->', func);
         return `${instance}.${func}`;
     }
 
@@ -63,6 +63,18 @@ module.exports = class StackParser {
         }
         return callerE.UNKNOWN_CALLER;
     }
+
+    getFunc(line) {
+        var arr = line.split(' ');
+        var result = arr[2];
+        if (result === '') {
+            arr = line.split('.');
+            var raw = arr[1];
+            result = raw.substring(0, raw.length - 1);
+        }
+        return result;
+    }
+
 
     parse() {
         const matches = this.getPossibleMatches();

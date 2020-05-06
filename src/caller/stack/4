@@ -1,7 +1,7 @@
 Error:
-        at RouterHandler.caller [as getFile] (/Users/traintrackcn/Treasures/dev/nodejs-api-server/common/router/Handler.js:75:35)
-        at getFile (/Users/traintrackcn/Treasures/dev/nodejs-api-server/common/router/Handler.test.js:16:14)
-        at Object.params.length.test.length.done (/Users/traintrackcn/Treasures/dev/nodejs-api-server/node_modules/jest-each/build/bind.js:75:31)
+        at JestRequestHandler.caller [as applyHeaders] (/Users/traintrackcn/Treasures/dev/nodejs-api-server/jest/request/Handler/index.js:168:35)
+        at JestRequestHandler.applyHeaders [as fetchWithAgent] (/Users/traintrackcn/Treasures/dev/nodejs-api-server/jest/request/Handler/index.js:138:18)
+        at Object.fetchWithAgent (/Users/traintrackcn/Treasures/dev/nodejs-api-server/handlers/v3/authentication/token/post.test.js:17:29)
         at resolve (/Users/traintrackcn/Treasures/dev/nodejs-api-server/node_modules/jest-jasmine2/build/queueRunner.js:43:12)
         at new Promise (<anonymous>)
         at mapper (/Users/traintrackcn/Treasures/dev/nodejs-api-server/node_modules/jest-jasmine2/build/queueRunner.js:26:19)

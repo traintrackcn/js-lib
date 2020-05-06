@@ -3,13 +3,10 @@ module.exports = {
         // ['@babel/preset-env',  { "modules": false } ],
         // ['@babel/preset-env', { "loose": true }],
         [ '@babel/preset-env' ],
-        [ '@babel/preset-react' ],
+        // [ '@babel/preset-react' ],
     ],
     plugins: [
-        [
-            "@babel/plugin-proposal-class-properties", 
-            // { 'loose': true }
-        ],
+        [ "@babel/plugin-proposal-class-properties"  ],
         [ "@babel/transform-runtime" ]
     ],
     // sourceType: "unambiguous",

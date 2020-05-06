@@ -12,89 +12,56 @@ module.exports = class StackParser {
         return this._stack;
     }
 
-    getLines() {
-        if (!this._lines) {
+    getPossibleMatches() {
+        try {
             const stack = this.getStack();
-            this._lines = stack.split('at ');
-        }
-        return this._lines;
-    }
-
-    getLine2() {
-        if (!this._line2) {
-            const lines = this.getLines();
-            this._line2 = lines[2];
-        }
-        return this._line2;
-    }
-
-    getLine3() {
-        if (!this._line3) {
-            const lines = this.getLines();
-            this._line3 = lines[3];
-        }
-        return this._line3;
-    }
-
-    getInstanceFromLine2() {
-        try {
-            const line = this.getLine2();
-            // console.log('line ->', line);
-            const regex = /\w+./i;
-            const matches = line.match(regex);
-            // console.log('matches ->', matches);
-            var result = line;
-            if (matches && matches.length) {
-                result = matches[0];
-                const endIdx = result.length-1;
-                result = result.substring(0, endIdx);
-            }
-            return result;
+            const regex = /\s\w+(.)\w+\s/ig;
+            const matches = stack.match(regex);
+            return matches;
         }catch(e) {
             throw e;
         }
     }
 
-    getFunctionFromLine3() {
-        try {
-            const line = this.getLine3();
-            // console.log('line ->', line);
-            const regex = /\w+\s/i;
-            const matches = line.match(regex);
-            // console.log('matches ->', matches);
-            var result = line;
-            if (matches && matches.length) {
-                result = matches[0];
-                const endIdx = result.length-1;
-                result = result.substring(0, endIdx);
-            }
-            return result;
-        }catch(e) {
-            throw e;
-        }
+    getScenario1(matches) {
+        const item = matches[0];
+        const arr = item.split(' ');
+        return arr[2];
     }
 
-    getScenario0() {
-        const line = this.getLine2();
-        var result = line.split(' ')[0];
-        return result;
-    }
-
-    getScenario1() {
-        const instance = this.getInstanceFromLine2();
-        const func = this.getFunctionFromLine3();
+    getScenario2(matches) {
+        const line0 = matches[0];
+        const arr0 = line0.split('.caller');
+        const instance = arr0[0].substring(1);
+        const line1 = matches[1];
+        const arr1 = line1.split(' ');
+        const func = arr1[2];
         return `${instance}.${func}`;
     }
 
-    parse() {
-        const line2 = this.getLine2();
-        var result;
-        if (line2.indexOf('.caller') > 0) {
-            result = this.getScenario1();
-        }else{
-            result = this.getScenario0();
+    getScenario3(matches) {
+        for (let i = 0; i < matches.length; i++) {
+            const match = matches[i];
+            if (match.indexOf(' Generator.')>-1) continue;
+            if (match.indexOf(' at ')>-1) continue;
+            if (match.indexOf(' promise')>-1) continue;
+            if (match.indexOf(' process')>-1) continue;
+
+            // console.log('match ->', match, match.indexOf(' at '));
+            const arr = match.split(' ');
+            return arr[1];
         }
-        return result;
+        return 'UNKNOWN_CALLER';
+    }
+
+    parse() {
+        const matches = this.getPossibleMatches();
+        const line0 = matches[0];
+        const line2 = matches[2];
+        console.log('matches ->', matches);
+        if (line0.indexOf('.caller') > -1) return this.getScenario2(matches);
+        if (line2.indexOf('at asyncGeneratorStep') >-1) return this.getScenario3(matches);
+        return this.getScenario1(matches);
     }
 
 }

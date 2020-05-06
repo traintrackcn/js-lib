@@ -14,6 +14,12 @@ it('test node instance.function', () => {
     expect(p.parse()).toBe('RouterHandler.getFile');
 })
 
+it('test async instance.function', () => {
+    const stack = readAsync('./stack/3');
+    const p = new StackParser(stack);
+    expect(p.parse()).toBe('FakeQuery.fetchAsync');
+})
+
 
 
 function readAsync(path) {

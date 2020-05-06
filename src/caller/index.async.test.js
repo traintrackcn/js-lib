@@ -14,7 +14,10 @@ it('test async function of Object', async(done) => {
 
 
 class FakeQuery{
+
     async fetchAsync() {
-        return caller();
+        console.log(new Error().stack);
+       return caller();
     }
+
 }

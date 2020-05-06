@@ -65,14 +65,30 @@ module.exports = class StackParser {
     }
 
     getFunc(line) {
-        var arr = line.split(' ');
-        var result = arr[2];
-        if (result === '') {
-            arr = line.split('.');
-            var raw = arr[1];
-            result = raw.substring(0, raw.length - 1);
-        }
+        var result = this.getFuncFromLineWithSpace(line);
+        if (result === '') result = this.getFuncFromLineWithDot(line);
         return result;
+    }
+
+    getFuncFromLineWithSpace(line) {
+        try {
+            const arr = line.split(' ');
+            const result = arr[2];
+            return result;
+        }catch(e) {
+            throw e;
+        }
+    }
+
+    getFuncFromLineWithDot(line) {
+        try {
+            const arr = line.split('.');
+            const raw = arr[1];
+            const result = raw.substring(0, raw.length - 1);
+            return result;
+        }catch(e) {
+            throw e;
+        }
     }
 
 

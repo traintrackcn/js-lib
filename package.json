@@ -22,7 +22,7 @@
     "jest": "^25.2.3"
   },
   "main": "src/index.js",
-  "author": "",
+  "author": "traintrackcn@gmail.com",
   "license": "ISC",
   "description": "",
   "dependencies": {}
